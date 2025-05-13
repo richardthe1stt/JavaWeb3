@@ -34,3 +34,16 @@ pipeline {
     }
 }
 
+// :white_check_mark: Stage 4: Deploy Docker Container (use port 8000 to avoid Jenkins conflict)
+        stage('Run Container') {
+            steps {
+                script {
+                    // Stop any existing container using the same image (optional)
+                    sh """
+                        docker ps -q --filter ancestor=${DOCKER_IMAGE}:latest | xargs -r docker stop
+                        docker ps -a -q --filter ancestor=${DOCKER_IMAGE}:latest | xargs -r docker rm
+                        docker run -d -p 8000:8080 ${DOCKER_IMAGE}:latest
+                    """
+                }
+            }
+        }
