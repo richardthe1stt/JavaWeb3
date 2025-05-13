@@ -8,7 +8,7 @@ pipeline {
         // Stage 1: Clone Repository
         stage('Clone Code') {
             steps {
-                git branch: 'latest',
+                git branch: 'master',
                      url: 'https://github.com/richardthe1stt/JavaWeb3.git'
             }
         }
