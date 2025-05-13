@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn packaga
+RUN mvn package
 
 # App via apache tomcat
 FROM tomcat:11.0.6-jdk21-temurin-noble
