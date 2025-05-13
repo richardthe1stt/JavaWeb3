@@ -31,10 +31,8 @@ pipeline {
                 }
             }
         }
-    }
-}
 
-// :white_check_mark: Stage 4: Deploy Docker Container (use port 8000 to avoid Jenkins conflict)
+        // :white_check_mark: Stage 4: Deploy Docker Container (use port 8000 to avoid Jenkins conflict)
         stage('Run Container') {
             steps {
                 script {
@@ -47,3 +45,6 @@ pipeline {
                 }
             }
         }
+    }
+}
+        
