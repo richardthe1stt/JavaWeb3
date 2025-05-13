@@ -7,11 +7,11 @@ COPY . .
 
 RUN mvn packaga
 
-# App via Nginx
-FROM Tomcat:11.0.6-jdk21-temurin-noble
+# App via apache tomcat
+FROM tomcat:11.0.6-jdk21-temurin-noble
 
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
-CMD ["catalina.sh", "run;"]
+CMD ["catalina.sh", "run"]
